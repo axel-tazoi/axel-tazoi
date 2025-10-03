@@ -1,0 +1,14 @@
+name: After PR Workflow
+
+on:
+  workflow_run:
+    workflows: ["PR Closed"]
+    types:
+      - completed
+
+jobs:
+  after-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Message
+        run: echo "Le workflow PR Closed est terminé"
